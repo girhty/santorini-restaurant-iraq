@@ -1,235 +1,62 @@
 ---
-/**
- * ==============================================================
- *  HERO — immersive parallax stage with 3D typography reveal
- *  Imagery source: Santorini Instagram feed (Greek atmosphere)
- *  Brand palette injected via CSS variables in Layout.astro
- * ==============================================================
- */
-
-const profilePic =
-  'https://scontent-ams2-1.cdninstagram.com/v/t51.2885-19/454466941_1209286150193886_3565551414674742385_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=106&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=hR7Di7zRRPkQ7kNvwEKtkku&_nc_oc=AdqpYPZMnBt8UjRue5si2WQ4_DDYcrgn9h6WHcEztGgbMIHTy0R0XjGZ1jiNCGx1wdU&_nc_zt=24&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_ss=7ca8c&oh=00_AQM3f8ZkHRZnBhLCNtOC48uXexlqWmWfoR4aZM7mO4eThw&oe=6ACB3BC3';
-
-const heroBg =
-  'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/800259126_17994270504038232_945464467684913350_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=gYf7Tpz8u0kQ7kNvwFuRVUo&_nc_oc=AdqSn9CISjESopPrB3wHBxxTOOx8VV8GdZeQdq3dVMW8G21fHL2pMkW6_VO1q-rWg_g&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=vadm4Qik_TAKl1WqeUkXNg&_nc_ss=7ca8c&oh=00_AQPABH7dC0gQ2NOld5weiCoG51JERaeLxfvz1uj1-aTiCg&oe=6ACB372B';
-
-const heroAccent =
-  'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/830669234_17995980168038232_88497562846727078_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Lbhv8DS5F7oQ7kNvwHDE4gX&_nc_oc=AdrQgI2KTdoKoVR3tGOZjZQhYWI34wWeeNftDje_5b6TCEMpDjK93Ltea1UJQVs5VF8&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=1-1Jub8tkfzv3u7ThzQ6Dw&_nc_ss=7ca8c&oh=00_AQMbVecZ-iA6CiZJmleyyRitP6NK1qacGur8AQLAIv_oVA&oe=6ACB539B';
-
-const stats = [
-  { value: '4.5', label: 'Google Rating', count: '4.5', suffix: '/5' },
-  { value: '188', label: 'Guest Reviews', count: '188', suffix: '+' },
-  { value: '41,656', label: 'Instagram Family', count: '41656', suffix: '+' },
-];
+// Placeholder videos/images for the cinematic hero section. 
+// In production, this would use a high-res video of Santorini/Baghdad skyline.
+const heroImage = "https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMY2LjpKR5Lsy191JipgGKdIXbEuslCnWjgMjfu8-k6xJu48Jh4mR80i_XsePS0_6JIwSLcZnzVQUoZPGLp8SnVfCElOLG1LN9tjXkj-aGdMxI9ciiaGgUQaS2ipq_f9-8dqZs67pa94IWLbgJNcATjEDz2T5CJEwSwP26IZKbCyVJ5vhOgCN1QYfvLIoRK78Tllln56Xi-yNY3NkKeTXEqQ0W3p74toDMP0oQJ1U7LDEEhG80mOhkW2Ni9XJ_CSz8lgqHVpLajXJaoXKOfyFsJDRNf5ap93vxOc7QpIxQHr3fPImUNpeIKtNLMEws5sF3nqjKjapryusV-R-KMjQiAHKu3XE6mUJB9rRW_vvXoW2kardWrxkTIbEADXW7LrtyO6zkTBNXQNZ3F3qYrflzDPR9zCrz99iQVkdYTaYVfQYw";
 ---
 
-<section id="home" class="relative min-h-[100svh] overflow-hidden bg-deepsea">
-  <!-- ================= BACKGROUND LAYERS (parallax) ================= -->
-  <div class="absolute inset-0" data-parallax data-speed="0.12" aria-hidden="true">
-    <img
-      src={heroBg}
-      alt=""
-      width="1280"
-      height="1280"
-      fetchpriority="high"
-      decoding="async"
-      class="h-[118%] w-full object-cover object-center opacity-75"
-    />
-  </div>
+<section class="relative h-screen min-h-[800px] w-full flex items-center justify-center overflow-hidden bg-aegean-deep">
+	<!-- Ambient Parallax Background -->
+	<div class="absolute inset-0 z-0">
+		<div class="absolute inset-0 bg-gradient-to-b from-aegean-deep/80 via-aegean-deep/40 to-aegean-deep z-10"></div>
+		<img 
+			src={heroImage} 
+			alt="Santorini Rooftop View over Baghdad" 
+			class="w-full h-full object-cover opacity-80 gpu-accelerated scale-105 hover:scale-100 transition-transform duration-[20s] ease-out"
+			fetchpriority="high"
+		/>
+	</div>
 
-  <!-- Colour grade overlay: deep Aegean → golden hour -->
-  <div class="absolute inset-0 bg-gradient-to-b from-deepsea/92 via-deepsea/55 to-sand" aria-hidden="true"></div>
-  <div
-    class="absolute inset-0 bg-[radial-gradient(ellipse_at_22%_18%,rgba(217,164,65,0.30),transparent_58%)]"
-    aria-hidden="true"
-  >
-  </div>
-  <div
-    class="absolute inset-0 bg-[radial-gradient(ellipse_at_82%_78%,rgba(46,134,171,0.35),transparent_60%)]"
-    aria-hidden="true"
-  >
-  </div>
+	<!-- Content Container -->
+	<div class="relative z-20 text-center px-6 max-w-5xl mx-auto mt-20">
+		<!-- Live Status & Ratings Pill -->
+		<div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 animate-fade-in" style="animation-delay: 0.2s;">
+			<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full">
+				<span class="relative flex h-2.5 w-2.5">
+					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+					<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+				</span>
+				<span class="text-xs font-sans text-white tracking-wider uppercase">Open now &middot; until 1:00 AM</span>
+			</div>
+			<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full">
+				<div class="flex text-gold-accent">
+					★ ★ ★ ★ <span class="text-white/50">★</span>
+				</div>
+				<span class="text-xs font-sans text-white font-medium">4.5 on Google</span>
+			</div>
+		</div>
 
-  <!-- Decorative sculptural geometry (Greek arches / cycladic rings) -->
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <div class="drift-ring absolute -left-24 top-24 h-72 w-72 rounded-full border border-white/12"></div>
-    <div class="drift-ring absolute right-[8%] top-[14%] h-40 w-40 rounded-full border border-gold/25"></div>
-    <div
-      class="absolute bottom-[-6rem] right-[-4rem] h-[26rem] w-[26rem] rounded-t-full border border-white/10 bg-white/[0.03]"
-    >
-    </div>
-    <div
-      class="absolute left-[6%] top-[12%] hidden h-[22rem] w-[16rem] rounded-t-full border border-white/10 lg:block"
-    >
-    </div>
-  </div>
+		<!-- Bilingual Typography -->
+		<h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-caldera-white leading-tight mb-4 animate-slide-up gpu-accelerated" style="animation-delay: 0.4s;">
+			A Few Steps To Greece
+		</h1>
+		<p class="font-sans text-2xl md:text-4xl text-gold-accent font-light mb-10 animate-slide-up gpu-accelerated" dir="rtl" style="animation-delay: 0.6s;">
+			مطعــم سانتوريــني
+		</p>
 
-  <!-- ================= HERO CONTENT ================= -->
-  <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-[1400px] flex-col justify-center px-5 pb-24 pt-32 sm:px-8 lg:pt-36">
-    <div class="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-      <!-- ---- Left: 3D typography reveal ---- -->
-      <div>
-        <!-- Logo emblem (from Instagram profile image) -->
-        <div class="flex items-center gap-4" data-reveal="left">
-          <span class="block h-16 w-16 overflow-hidden rounded-full ring-2 ring-gold/70 shadow-glow sm:h-20 sm:w-20">
-            <img src={profilePic} alt="Santorini Restaurant emblem" width="160" height="160" class="h-full w-full object-cover" />
-          </span>
-          <div>
-            <p class="text-[0.66rem] uppercase tracking-luxe text-gold">Al-Harithiya · Baghdad</p>
-            <p class="font-arabic text-sm text-cream/80" dir="rtl" lang="ar">مطعــم سانتوريــني</p>
-          </div>
-        </div>
+		<!-- Dual CTAs -->
+		<div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in" style="animation-delay: 0.8s;">
+			<a href="#reservations" class="w-full sm:w-auto px-8 py-4 bg-terracotta hover:bg-[#a94a28] text-white font-sans font-medium text-sm uppercase tracking-widest rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(200,90,50,0.4)] hover:scale-105 active:scale-95 gpu-accelerated">
+				Reserve a Table
+			</a>
+			<a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/40 hover:bg-white/10 text-white font-sans font-medium text-sm uppercase tracking-widest rounded-full transition-all duration-300 hover:scale-105 active:scale-95 gpu-accelerated">
+				Explore Menu
+			</a>
+		</div>
+	</div>
 
-        <h1 class="mt-8 font-display leading-[0.88] text-cream">
-          <span class="block overflow-hidden">
-            <span
-              class="block text-[clamp(3.1rem,10.5vw,8.4rem)] font-light tracking-[-0.02em]"
-              data-reveal
-              style="transform: translate3d(0,110%,0) rotateX(-38deg); transform-origin: bottom center;"
-            >
-              A Few Steps
-            </span>
-          </span>
-          <span class="block overflow-hidden">
-            <span
-              class="block text-[clamp(3.1rem,10.5vw,8.4rem)] font-light italic text-gold"
-              data-reveal
-              style="transition-delay:180ms; transform: translate3d(0,110%,0) rotateX(-38deg); transform-origin: bottom center;"
-            >
-              To Greece
-            </span>
-          </span>
-        </h1>
-
-        <p class="mt-8 max-w-xl text-base leading-relaxed text-cream/82 sm:text-lg" data-reveal style="transition-delay:320ms">
-          Santorini brings the Aegean to the heart of Baghdad — sun-bleached whites, blue-domed calm, charcoal-grilled
-          seafood and slow Mediterranean evenings above the city skyline.
-        </p>
-        <p class="mt-4 max-w-xl font-arabic text-[0.98rem] leading-loose text-cream/70" dir="rtl" lang="ar" data-reveal style="transition-delay:400ms">
-          نكهات يونانية أصيلة، أجواء استثنائية وإطلالة ساحرة في قلب بغداد — الحارثية، شارع الزيتون.
-        </p>
-
-        <!-- CTAs -->
-        <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal style="transition-delay:480ms">
-          <a href="#reserve" class="btn btn-gold rounded-full px-8 text-[0.78rem] font-semibold uppercase tracking-wide2" data-magnetic>
-            <span>Reserve a Table</span>
-          </a>
-          <a href="#menu" class="btn btn-ghost rounded-full px-8 text-[0.78rem] font-semibold uppercase tracking-wide2" data-magnetic>
-            <span>Explore the Menu</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        <!-- Google rating badge -->
-        <div class="mt-10 flex flex-wrap items-center gap-5" data-reveal style="transition-delay:560ms">
-          <div class="glass inline-flex items-center gap-3 rounded-full px-5 py-3">
-            <span class="text-lg text-gold" aria-hidden="true">★★★★★</span>
-            <p class="text-sm text-cream/85">
-              <strong class="text-cream">4.5</strong> on Google · 188 reviews
-            </p>
-          </div>
-          <div class="glass inline-flex items-center gap-2.5 rounded-full px-5 py-3">
-            <span class="relative flex h-2 w-2" aria-hidden="true">
-              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky opacity-75"></span>
-              <span class="relative inline-flex h-2 w-2 rounded-full bg-sky"></span>
-            </span>
-            <p class="text-sm text-cream/85">Open now · until 1:00 AM</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ---- Right: sculpted 3D image stack ---- -->
-      <div class="relative hidden lg:block" data-parallax data-speed="-0.06">
-        <div
-          class="img-frame clip-arch absolute right-2 top-[-3rem] h-[30rem] w-[20rem] rounded-[14rem_14rem_1.5rem_1.5rem] shadow-lift"
-          data-tilt="6"
-          data-reveal="flip"
-        >
-          <img
-            src={heroAccent}
-            alt="Greek feta and Mediterranean salad served at Santorini Restaurant"
-            width="640"
-            height="640"
-            loading="eager"
-            decoding="async"
-            class="h-full w-full object-cover"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-deepsea/55 via-transparent to-transparent"></div>
-        </div>
-
-        <!-- floating stat card -->
-        <div
-          class="glass absolute -left-6 bottom-6 w-[16.5rem] rounded-3xl p-6 shadow-lift"
-          data-tilt="10"
-          data-reveal="right"
-          style="transition-delay:220ms"
-        >
-          <p class="text-[0.62rem] uppercase tracking-luxe text-gold">Rooftop dining</p>
-          <p class="mt-3 font-display text-[1.75rem] leading-tight text-cream">
-            The most beautiful <span class="italic text-gold">skyline</span> in Baghdad
-          </p>
-          <div class="mt-5 h-px w-full bg-white/15"></div>
-          <p class="mt-4 text-xs leading-relaxed text-cream/70">
-            Cycladic architecture, hand-laid stone, linen textures and golden-hour light.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============ STAT STRIP ============ -->
-    <dl class="mt-16 grid gap-5 border-t border-white/12 pt-10 sm:grid-cols-3" data-reveal>
-      {
-        stats.map((stat) => (
-          <div class="flex items-baseline gap-4">
-            <dd class="font-display text-[2.6rem] leading-none text-cream">
-              <span data-count={stat.count}>{stat.value}</span>
-              <span class="text-gold">{stat.suffix}</span>
-            </dd>
-            <dt class="text-[0.68rem] uppercase tracking-wide2 text-cream/65">{stat.label}</dt>
-          </div>
-        ))
-      }
-    </dl>
-  </div>
-
-  <!-- Scroll cue -->
-  <a
-    href="#experience"
-    class="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-cream/70 transition-colors duration-500 hover:text-gold sm:flex"
-    aria-label="Scroll to The Santorini Experience section"
-  >
-    <span class="text-[0.62rem] uppercase tracking-luxe">Scroll</span>
-    <span class="relative block h-12 w-px overflow-hidden bg-white/25" aria-hidden="true">
-      <span class="absolute inset-x-0 top-0 h-4 animate-[floaty_2.2s_ease-in-out_infinite] bg-gold"></span>
-    </span>
-  </a>
-
-  <!-- ============ MARQUEE BAND ============ -->
-  <div class="absolute inset-x-0 bottom-0 z-10 overflow-hidden border-y border-white/10 bg-deepsea/70 py-3.5">
-    <div class="marquee-track gap-10 whitespace-nowrap">
-      {
-        Array.from({ length: 2 }).map(() => (
-          <div class="flex shrink-0 items-center gap-10">
-            {[
-              'Few Steps To Greece',
-              'مطعــم سانتوريــني',
-              'Rooftop · Baghdad',
-              'Aegean Seafood',
-              'Greek Wines',
-              'Golden Hour Dining',
-              'خطوات قليلة لليونان',
-              'Since 2023',
-            ].map((word) => (
-              <span class="flex items-center gap-10 text-[0.72rem] uppercase tracking-luxe text-cream/72">
-                {word}
-                <span class="text-gold" aria-hidden="true">
-                  ✦
-                </span>
-              </span>
-            ))}
-          </div>
-        ))
-      }
-    </div>
-  </div>
+	<!-- Scroll Indicator -->
+	<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-70">
+		<span class="text-[10px] font-sans uppercase tracking-widest text-white">Scroll</span>
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+	</div>
 </section>

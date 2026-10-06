@@ -1,0 +1,97 @@
+---
+// Menu Data
+const menuData = [
+  {
+    id: "mezedes",
+    name: "Mezedes",
+    items: [
+      { name: "Saganaki", desc: "Pan-fried Greek kefalograviera cheese, lemon, oregano.", price: "18,000 IQD" },
+      { name: "Tzatziki", desc: "Strained yogurt, cucumber, garlic, extra virgin olive oil.", price: "12,000 IQD" },
+      { name: "Fried Feta", desc: "Crispy fried Greek feta drizzled with honey and sesame.", price: "22,000 IQD" }
+    ]
+  },
+  {
+    id: "seafood",
+    name: "Fresh Seafood",
+    items: [
+      { name: "Grilled Octopus", desc: "Charcoal grilled, olive oil, red wine vinegar, oregano.", price: "38,000 IQD" },
+      { name: "Salmon Fillet", desc: "Perfectly grilled salmon served with fresh Aegean herbs.", price: "42,000 IQD" },
+      { name: "Lavraki", desc: "Whole Mediterranean sea bass, sea salt, olive oil, lemon.", price: "55,000 IQD" }
+    ]
+  },
+  {
+    id: "grill",
+    name: "Charcoal Grill",
+    items: [
+      { name: "Chicken Souvlaki", desc: "Skewered chicken, peppers, onions, served with pita.", price: "25,000 IQD" },
+      { name: "Lamb Chops", desc: "Premium grilled lamb chops marinated in Greek herbs.", price: "48,000 IQD" }
+    ]
+  },
+  {
+    id: "drinks",
+    name: "Greek Wines",
+    items: [
+      { name: "Assyrtiko", desc: "Crisp white wine from Santorini with citrus notes.", price: "40,000 IQD" },
+      { name: "Agiorgitiko", desc: "Smooth red wine with velvety tannins and red fruit.", price: "45,000 IQD" }
+    ]
+  }
+];
+---
+
+<section id="menu" class="py-24 bg-aegean-deep text-caldera-white relative">
+	<div class="max-w-7xl mx-auto px-6">
+		
+		<div class="text-center max-w-2xl mx-auto mb-16 reveal">
+			<h2 class="font-serif text-4xl md:text-5xl text-gold-accent mb-4">The Menu</h2>
+			<p class="font-sans text-lg text-limestone/70">A culinary journey through the Aegean. Prepared with passion, served with elegance.</p>
+		</div>
+
+		<!-- Tabs Container -->
+		<div class="reveal" x-data="{ activeTab: 'mezedes' }">
+			<!-- Tab Nav -->
+			<div class="flex flex-wrap justify-center gap-4 mb-12">
+				{menuData.map((category) => (
+					<button 
+						@click={`activeTab = '${category.id}'`}
+						:class={`activeTab === '${category.id}' ? 'bg-terracotta text-white' : 'bg-transparent text-limestone border-limestone/30 hover:bg-white/10'`}
+						class="px-6 py-2.5 rounded-full border font-sans text-sm uppercase tracking-wider transition-all duration-300"
+					>
+						{category.name}
+					</button>
+				))}
+			</div>
+
+			<!-- Tab Content -->
+			<div class="relative min-h-[400px]">
+				{menuData.map((category) => (
+					<div 
+						x-show={`activeTab === '${category.id}'`}
+						x-transition:enter="transition ease-out duration-500"
+						x-transition:enter-start="opacity-0 translate-y-4"
+						x-transition:enter-end="opacity-100 translate-y-0"
+						class="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10"
+					>
+						{category.items.map((item) => (
+							<div class="group cursor-pointer border-b border-white/10 pb-6 hover:border-gold-accent/50 transition-colors">
+								<div class="flex justify-between items-baseline mb-2">
+									<h4 class="font-serif text-2xl text-caldera-white group-hover:text-gold-accent transition-colors">{item.name}</h4>
+									<span class="font-sans text-gold-accent font-medium">{item.price}</span>
+								</div>
+								<p class="font-sans text-limestone/60 text-sm leading-relaxed">{item.desc}</p>
+							</div>
+						))}
+					</div>
+				))}
+			</div>
+		</div>
+		
+		<div class="mt-16 text-center reveal">
+			<a href="#" class="inline-block border-b border-gold-accent text-gold-accent pb-1 font-sans text-sm uppercase tracking-widest hover:text-white hover:border-white transition-colors">
+				View Full Menu (PDF)
+			</a>
+		</div>
+	</div>
+</section>
+
+<!-- Include Alpine.js for Interactivity -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>

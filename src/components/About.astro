@@ -1,0 +1,72 @@
+---
+const images = [
+  "https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMbMgNt2v5N9DQIGyhAvwDnphGefYXdZkRLN0gxAchsr-zS0Gi1ByjMb66xGgAehwhVmCCxQIjS-tyoGkdIaxs669oDtZoSzahWd5eSmT6zJqM8rW0iDSgr21_vZUDj-L5i5Em4GnqRhzsKVhP_tvadsniY0IciPxGiSRuHsR5AEt1HaAOv9kwkZHNGG0sErdYs9tB_StRlMNrK_GkmiX_qZ8bS5QUB36s60o7t5y_sEfa8xM8Qqyq_SEXZqwJalhD9MrH0EMwA7sErWRr9PQASx04cTb3N7RDCN5bO22TD2wGp-UJuBAN0Ow83M3Tl8BEYaKX3Ls8yiD3Ki6ZuGoq97gaXVQBcw5v99PFMz6TSa1fNAbKBRXs1K9fZf3ceVgTJ1qHxCHO4fFvCxqCCO_IjMCGs",
+  "https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMa1MT2rU7NJx_LBy9sZkQejMDw1IHvuR7Hy2GpDOoLDw0JF1h6H4ZsDWooERQPHi-esfVgffWbrVuqaT0EJnc-2BDYMhEQt_8v5hCTokuYLmlWCztqp7M9AGkOhNhqC5JXIuS_6XbMoitzhhwiM6FUDmdsfDKlGpVTHoj8maXDP49RmWVcnS6f0zb923qJJ7ZuxlawL1nKCRL9iEqK_vPXc2qV2vlabUJYSbsbMZ830R_Gy2KSufcICVamGuTezgMHGdZsOPrAXE3GJCDms3eIGMwcWwJnduf2ciwiniYjNoDoMWNG_iKvYjE4zJAf652YwZJuFU-o58tRPHJHG25VQORkb_5RLv15rjA-VLXEVTPFWISZFVgGAvo4nuxgqCuJb9apBtM5Y6zgfXRjODcnmtwBaXv2NaK44OqxGyoWRnA",
+  "https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMbLNU1aDX3Is6DwINd2j1lIISuQeVqgEN6hliKWKVnmxTug9wE94oD86zrWjXaqORDX6u3tsp0-sdQGk8ttGTzsn5b7OynXQu8YaVL83T68TN5OCyQVeRLuVyHnEJxSLEzLRuokXo0Xnbt5VaIe2ZekP3IszSBw76wbC7pXxKJJTSZBCSeIXyIASNCsQUqV7d7unlF0IT9yZXVHNlwmqKwfA2lI02ckgUx95EbxucwasS0nTrDbGZhcSFbsPetwq0Ka7Ngx0qscVeBggSrTa9z-tYBHdwauiJVBmrnxXwUlLmKHcj9AM8yVQDiDOttAjZe2jeVdTTF9fsOi-CrdufbV_PWM857PrCi6DuEe-QEKcsqPj7vfrpnWwarBzH79oX_IW7RhU93QNGctv5sSaMOwS14W-3ruIT3p_Qckd9Gm_Q"
+];
+---
+<section id="about" class="py-24 md:py-32 bg-caldera-white relative overflow-hidden">
+	<!-- Decorative stone background element -->
+	<div class="absolute top-0 right-0 w-96 h-96 bg-limestone/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+
+	<div class="max-w-7xl mx-auto px-6 relative z-10">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+			
+			<!-- Text Content -->
+			<div class="reveal order-2 lg:order-1 flex flex-col justify-center">
+				<div class="flex items-center gap-3 mb-4">
+					<div class="h-[1px] w-12 bg-terracotta"></div>
+					<span class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">The Experience</span>
+				</div>
+				
+				<h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-aegean-deep leading-[1.1] mb-6">
+					Cycladic Elegance in the Heart of Baghdad
+				</h2>
+				
+				<p class="font-sans text-lg text-aegean-deep/80 mb-6 leading-relaxed">
+					Santorini brings the breathtaking charm of the Aegean to Al-Harithiya. Designed with whitewashed arches and textured stone, our rooftop provides a dramatic backdrop overlooking the most spectacular landmarks of Baghdad's skyline.
+				</p>
+				
+				<p class="font-sans text-lg text-aegean-deep/80 mb-10 leading-relaxed">
+					Experience the golden hour while savoring authentic Greek flavors—from our charcoal grill seafood to crisp Santorini salads, paired perfectly with our curated wine list.
+				</p>
+
+				<!-- Bilingual snippet -->
+				<div class="p-6 border-l-2 border-gold-accent bg-white shadow-xl rounded-r-2xl mb-10" dir="rtl">
+					<p class="font-sans text-aegean-deep/80 italic">
+						"في سانتوريني، تفاصيل تنبض بالجمال؛ موسيقى آسرة، أجواء راقية، وأطباق شهية تُقدَّم بذوق يليق بتجربة استثنائية"
+					</p>
+				</div>
+				
+				<a href="#reservations" class="inline-flex items-center gap-2 text-aegean-blue font-sans font-semibold uppercase tracking-widest hover:text-terracotta transition-colors w-fit group">
+					Book Your Escape
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+				</a>
+			</div>
+
+			<!-- Asymmetric Image Grid with 3D Tilts -->
+			<div class="order-1 lg:order-2 grid grid-cols-2 gap-4 md:gap-6 relative reveal">
+				<div class="mt-12 space-y-4 md:space-y-6">
+					<div class="tilt-card gpu-accelerated rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] relative group">
+						<img src={images[0]} alt="Cycladic archway" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" />
+						<div class="absolute inset-0 bg-gradient-to-t from-aegean-deep/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+					</div>
+					<div class="tilt-card gpu-accelerated rounded-2xl overflow-hidden shadow-xl aspect-square relative group">
+						<img src={images[1]} alt="Authentic Greek Seafood" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" />
+					</div>
+				</div>
+				<div class="space-y-4 md:space-y-6">
+					<div class="tilt-card gpu-accelerated rounded-2xl overflow-hidden shadow-xl aspect-square relative group">
+						<img src={images[2]} alt="Linen table setup" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" />
+					</div>
+					<div class="tilt-card gpu-accelerated rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] relative group p-8 flex flex-col justify-end bg-aegean-blue text-white">
+						<div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/white-wall.png')] mix-blend-overlay"></div>
+						<h3 class="font-serif text-3xl mb-2 relative z-10">Rooftop Vibes</h3>
+						<p class="font-sans text-sm text-white/80 relative z-10">Experience twilight dining like never before.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>

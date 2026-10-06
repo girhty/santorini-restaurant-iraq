@@ -1,172 +1,62 @@
 ---
-/**
- * ==============================================================
- *  REVIEWS — Google Places social proof
- *  Rating summary + masonry-style testimonial cards (3D tilt)
- * ==============================================================
- */
-
 const reviews = [
   {
-    author: 'Abdullah Furat',
-    rating: 5,
-    text: 'The atmosphere on the roof is amazing — the place overlooks some of the most beautiful and spectacular Baghdad landmarks. I would recommend a visit.',
-    tag: 'Rooftop view',
+    "author_name": "Abdullah Furat",
+    "rating": 5,
+    "text": "The atmospheres are amazing especially on cold and clear days. The place overlooks some of the most beautiful and spectacular Baghdad’s landmarks. I would recommend a visit."
   },
   {
-    author: 'Ali Taleb',
-    rating: 4,
-    text: 'Great atmosphere at the restaurant, something I have not seen in Baghdad before. The food was good and the drinks were up to standard.',
-    tag: 'Ambience',
+    "author_name": "Ali Taleb",
+    "rating": 4,
+    "text": "Great atmosphere at the restaurant, something I haven’t seen in Baghdad before. The menu is very diverse. Nevertheless the food was good and the drinks were up to standard."
   },
   {
-    author: 'Trouxz',
-    rating: 5,
-    text: 'Best experience, nice view and food is really delicious!',
-    tag: 'Food & view',
-  },
-  {
-    author: 'Abdalrhman Al-Badri',
-    rating: 5,
-    text: 'Great experience.',
-    tag: 'Experience',
-  },
-  {
-    author: 'Sara',
-    rating: 5,
-    text: 'Beautiful setting and a lovely Greek-inspired atmosphere — a nice change of pace in the city.',
-    tag: 'Atmosphere',
-  },
+    "author_name": "Trouxz",
+    "rating": 5,
+    "text": "Best experience, nice view and food is really delicious!"
+  }
 ];
 
-const ratingBreakdown = [
-  { stars: 5, pct: 72 },
-  { stars: 4, pct: 19 },
-  { stars: 3, pct: 5 },
-  { stars: 2, pct: 2 },
-  { stars: 1, pct: 2 },
-];
+const StarIcon = () => (
+  `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="text-gold-accent"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`
+);
 ---
 
-<section id="reviews" class="relative overflow-hidden bg-cream py-24 sm:py-28 lg:py-32">
-  <!-- Decorative offset geometry -->
-  <div class="pointer-events-none absolute -left-24 top-16 h-96 w-96 rounded-full border border-aegean/12" aria-hidden="true"></div>
-  <div class="pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-t-full border border-gold/18" aria-hidden="true"></div>
+<section id="reviews" class="py-24 bg-limestone relative">
+	<div class="max-w-7xl mx-auto px-6">
+		<div class="text-center mb-16 reveal">
+			<h2 class="font-serif text-4xl md:text-5xl text-aegean-deep mb-4">Guest Testimonials</h2>
+			<div class="flex justify-center items-center gap-2">
+				<div class="flex text-gold-accent">
+					<Fragment set:html={StarIcon()} />
+					<Fragment set:html={StarIcon()} />
+					<Fragment set:html={StarIcon()} />
+					<Fragment set:html={StarIcon()} />
+					<Fragment set:html={StarIcon()} />
+				</div>
+				<span class="font-sans text-aegean-deep font-medium ml-2">4.5 out of 5 on Google Reviews</span>
+			</div>
+		</div>
 
-  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
-    <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-      <!-- ============ RATING SUMMARY ============ -->
-      <div>
-        <p class="flex items-center gap-3 text-[0.66rem] uppercase tracking-luxe text-sea" data-reveal>
-          <span class="h-px w-12 bg-sea" aria-hidden="true"></span>
-          Guest Reviews
-        </p>
-        <h2 class="mt-7 font-display text-[clamp(2.45rem,5.6vw,4.55rem)] leading-[0.96] text-ink" data-reveal="left">
-          Loved by
-          <span class="block italic text-aegean">Baghdad.</span>
-        </h2>
-
-        <div class="mt-9 rounded-[1.75rem] border border-ink/10 bg-sand/70 p-8 shadow-soft" data-reveal="flip">
-          <div class="flex items-end gap-5">
-            <p class="font-display text-[4.25rem] leading-none text-aegean">
-              <span data-count="4.5">4.5</span>
-            </p>
-            <div class="pb-2">
-              <p class="text-lg text-gold" aria-hidden="true">★★★★★</p>
-              <p class="mt-1.5 text-sm text-ink/65">
-                Based on <strong class="text-ink">188</strong> Google reviews
-              </p>
-            </div>
-          </div>
-
-          <!-- Breakdown bars -->
-          <ul class="mt-8 space-y-3.5">
-            {
-              ratingBreakdown.map((row) => (
-                <li class="flex items-center gap-4">
-                  <span class="w-8 text-xs text-ink/60">{row.stars} ★</span>
-                  <span class="h-2 flex-1 overflow-hidden rounded-full bg-ink/10">
-                    <span
-                      class="block h-full rounded-full bg-gradient-to-r from-aegean to-sea transition-[width] duration-1000"
-                      style={`width:${row.pct}%`}
-                    />
-                  </span>
-                  <span class="w-10 text-right text-xs text-ink/55">{row.pct}%</span>
-                </li>
-              ))
-            }
-          </ul>
-
-          <div class="mt-8 flex flex-wrap gap-3">
-            <span class="rounded-full border border-ink/12 px-4 py-2 text-[0.62rem] uppercase tracking-wide2 text-ink/70">
-              Amazing rooftop
-            </span>
-            <span class="rounded-full border border-ink/12 px-4 py-2 text-[0.62rem] uppercase tracking-wide2 text-ink/70">
-              Great atmosphere
-            </span>
-            <span class="rounded-full border border-ink/12 px-4 py-2 text-[0.62rem] uppercase tracking-wide2 text-ink/70">
-              Delicious food
-            </span>
-            <span class="rounded-full border border-ink/12 px-4 py-2 text-[0.62rem] uppercase tracking-wide2 text-ink/70">
-              Beautiful view
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============ TESTIMONIAL CARDS ============ -->
-      <div class="grid gap-6 sm:grid-cols-2">
-        {
-          reviews.map((review, i) => (
-            <article
-              class:list={[
-                'group relative overflow-hidden rounded-[1.5rem] border border-ink/9 bg-sand/60 p-7 transition-all duration-700 hover:-translate-y-2 hover:border-aegean/35 hover:shadow-lift',
-                i === 0 && 'sm:col-span-2',
-              ]}
-              data-tilt="7"
-              data-reveal={i % 2 === 0 ? 'flip' : 'zoom'}
-              style={`transition-delay:${i * 110}ms`}
-            >
-              <!-- Quote mark -->
-              <span class="pointer-events-none absolute -right-2 -top-6 font-display text-[7rem] leading-none text-aegean/10" aria-hidden="true">
-                ”
-              </span>
-
-              <div class="flex items-center justify-between gap-4">
-                <div class="flex items-center gap-3.5">
-                  <span class="flex h-11 w-11 items-center justify-center rounded-full bg-aegean font-display text-lg text-cream">
-                    {review.author.charAt(0)}
-                  </span>
-                  <div>
-                    <p class="font-medium text-ink">{review.author}</p>
-                    <p class="text-[0.62rem] uppercase tracking-wide2 text-ink/55">Google review</p>
-                  </div>
-                </div>
-                <span class="text-sm text-gold" aria-label={`${review.rating} out of 5 stars`}>
-                  {'★'.repeat(review.rating)}
-                  {'☆'.repeat(5 - review.rating)}
-                </span>
-              </div>
-
-              <p class="mt-6 leading-relaxed text-ink/78">"{review.text}"</p>
-
-              <div class="mt-7 flex items-center gap-3">
-                <span class="rounded-full bg-sea/12 px-3.5 py-1.5 text-[0.6rem] font-semibold uppercase tracking-wide2 text-sea">
-                  {review.tag}
-                </span>
-                <span class="flex items-center gap-1.5 text-[0.62rem] uppercase tracking-wide2 text-ink/50">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 2 3 7v6c0 5 3.8 8.6 9 9 5.2-.4 9-4 9-9V7l-9-5Z" />
-                  </svg>
-                  Verified
-                </span>
-              </div>
-
-              <div class="pointer-events-none absolute -bottom-14 -right-14 h-32 w-32 rounded-full border border-aegean/12 transition-transform duration-700 group-hover:scale-125" aria-hidden="true" />
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </div>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 staggered-reveal">
+			{reviews.map((review) => (
+				<div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 tilt-card gpu-accelerated">
+					<div class="flex gap-1 mb-4">
+						{Array(review.rating).fill(0).map(() => (
+							<Fragment set:html={StarIcon()} />
+						))}
+					</div>
+					<p class="font-sans text-aegean-deep/80 text-sm leading-relaxed mb-6 line-clamp-5">
+						"{review.text}"
+					</p>
+					<div class="flex items-center gap-3 mt-auto">
+						<div class="w-10 h-10 rounded-full bg-aegean-blue text-white flex items-center justify-center font-serif font-bold">
+							{review.author_name.charAt(0)}
+						</div>
+						<span class="font-sans font-semibold text-aegean-deep text-sm">{review.author_name}</span>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
 </section>

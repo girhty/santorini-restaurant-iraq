@@ -1,0 +1,86 @@
+---
+---
+<section id="reservations" class="py-24 bg-caldera-white">
+	<div class="max-w-7xl mx-auto px-6">
+		<div class="bg-aegean-deep rounded-[2.5rem] overflow-hidden shadow-2xl reveal">
+			<div class="grid grid-cols-1 lg:grid-cols-2">
+				
+				<!-- Booking Form -->
+				<div class="p-10 md:p-16 lg:p-20 text-white">
+					<h2 class="font-serif text-4xl md:text-5xl text-gold-accent mb-4">Reserve a Table</h2>
+					<p class="font-sans text-limestone/70 mb-10">Join us for an unforgettable evening of Greek hospitality and rooftop dining.</p>
+					
+					<form class="space-y-6 font-sans">
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div>
+								<label class="block text-xs uppercase tracking-widest text-limestone mb-2">Date</label>
+								<input type="date" class="w-full bg-transparent border-b border-white/30 py-2 text-white focus:outline-none focus:border-gold-accent transition-colors appearance-none [&::-webkit-calendar-picker-indicator]:invert" required />
+							</div>
+							<div>
+								<label class="block text-xs uppercase tracking-widest text-limestone mb-2">Time</label>
+								<select class="w-full bg-transparent border-b border-white/30 py-2 text-white focus:outline-none focus:border-gold-accent transition-colors appearance-none" required>
+									<option value="" class="text-gray-900">Select Time</option>
+									<option value="19:00" class="text-gray-900">7:00 PM</option>
+									<option value="20:00" class="text-gray-900">8:00 PM</option>
+									<option value="21:00" class="text-gray-900">9:00 PM</option>
+									<option value="22:00" class="text-gray-900">10:00 PM</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div>
+								<label class="block text-xs uppercase tracking-widest text-limestone mb-2">Guests</label>
+								<select class="w-full bg-transparent border-b border-white/30 py-2 text-white focus:outline-none focus:border-gold-accent transition-colors appearance-none" required>
+									<option value="2" class="text-gray-900">2 Guests</option>
+									<option value="4" class="text-gray-900">4 Guests</option>
+									<option value="6" class="text-gray-900">6 Guests</option>
+									<option value="8+" class="text-gray-900">8+ Guests</option>
+								</select>
+							</div>
+							<div>
+								<label class="block text-xs uppercase tracking-widest text-limestone mb-2">Phone Number</label>
+								<input type="tel" placeholder="+964..." class="w-full bg-transparent border-b border-white/30 py-2 text-white placeholder:text-white/20 focus:outline-none focus:border-gold-accent transition-colors" required />
+							</div>
+						</div>
+
+						<button type="submit" class="w-full mt-8 bg-terracotta hover:bg-[#a94a28] text-white font-semibold uppercase tracking-widest py-4 rounded-full transition-all shadow-lg hover:scale-[1.02] active:scale-95 gpu-accelerated">
+							Confirm Booking
+						</button>
+					</form>
+				</div>
+
+				<!-- Map & Contact Info -->
+				<div class="bg-limestone relative min-h-[400px]">
+					<!-- Simulated Custom Styled Map Background -->
+					<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center grayscale sepia-[0.3] opacity-80 mix-blend-multiply"></div>
+					
+					<!-- Map Pin Overlay -->
+					<div class="absolute inset-0 flex items-center justify-center">
+						<div class="bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3 animate-float">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C85A32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+							<div>
+								<p class="font-sans font-bold text-aegean-deep text-sm">Santorini Restaurant</p>
+								<p class="font-sans text-xs text-aegean-deep/60">Al-Harithiya, Baghdad</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Floating Contact Card -->
+					<div class="absolute bottom-6 left-6 right-6 bg-aegean-deep text-white p-6 rounded-2xl shadow-2xl z-10">
+						<div class="flex flex-col gap-4">
+							<div class="flex items-start gap-3">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+								<p class="font-sans text-sm text-limestone/80 leading-snug">894G+JJX، شارع الزيتون, Baghdad, Baghdad Governorate</p>
+							</div>
+							<div class="flex items-center gap-3">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+								<a href="tel:+9647760202066" class="font-sans text-sm font-medium text-limestone hover:text-gold-accent transition-colors" dir="ltr">+964 776 020 2066</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
