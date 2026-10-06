@@ -8,7 +8,7 @@ export default defineConfig({
   output: 'static',
   integrations: [
     tailwind({
-      applyBaseStyles: false,
+      applyBaseStyles: ture,
     }),
   ],
   build: {
