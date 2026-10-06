@@ -1,0 +1,97 @@
+---
+/**
+ * ==============================================================
+ *  CARD — reusable 3D tilt media card
+ *  Used for experience cards, dish previews, review tiles, etc.
+ * ==============================================================
+ */
+interface Props {
+  image: string;
+  alt: string;
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  meta?: string;
+  ratio?: string;
+  tilt?: string;
+  variant?: 'light' | 'dark';
+  reveal?: '' | 'left' | 'right' | 'flip' | 'zoom' | 'skew' | 'mask';
+  delay?: string;
+}
+
+const {
+  image,
+  alt,
+  eyebrow,
+  title,
+  text,
+  meta,
+  ratio = 'aspect-[4/5]',
+  tilt = '8',
+  variant = 'light',
+  reveal = '',
+  delay = '0ms',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<article
+  class:list={[
+    'group relative overflow-hidden rounded-[1.75rem] shadow-soft transition-shadow duration-700 hover:shadow-lift',
+    isDark ? 'bg-deepsea text-cream' : 'bg-cream text-ink',
+  ]}
+  data-tilt={tilt}
+  data-reveal={reveal}
+  style={`transition-delay:${delay}`}
+>
+  <!-- Media frame (clip-path morph + blur-up placeholder) -->
+  <div class:list={['img-frame', ratio, 'w-full']}>
+    <img
+      src={image}
+      alt={alt}
+      width="800"
+      height="1000"
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-deepsea/78 via-deepsea/12 to-transparent"></div>
+
+    {
+      meta && (
+        <span class="absolute left-5 top-5 rounded-full bg-cream/92 px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-wide2 text-ink shadow-soft">
+          {meta}
+        </span>
+      )
+    }
+  </div>
+
+  <!-- Content -->
+  <div class="relative -mt-14 px-6 pb-7 sm:px-7">
+    {eyebrow && <p class="text-[0.62rem] uppercase tracking-luxe text-gold">{eyebrow}</p>}
+    <h3
+      class:list={[
+        'mt-3 font-display text-[1.55rem] leading-tight',
+        isDark ? 'text-cream' : 'text-ink',
+      ]}
+    >
+      {title}
+    </h3>
+    {text && <p class:list={['mt-3 text-sm leading-relaxed', isDark ? 'text-cream/72' : 'text-ink/72']}>{text}</p>}
+    <slot />
+    <div
+      class="mt-6 flex items-center gap-2 text-[0.68rem] uppercase tracking-wide2 text-sea transition-transform duration-500 group-hover:translate-x-1.5"
+    >
+      Discover
+      <span aria-hidden="true">→</span>
+    </div>
+  </div>
+
+  <!-- Decorative corner ring -->
+  <div
+    class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border border-white/15 transition-transform duration-700 group-hover:scale-125"
+    aria-hidden="true"
+  >
+  </div>
+</article>

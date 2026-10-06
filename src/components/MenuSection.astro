@@ -1,0 +1,423 @@
+---
+/**
+ * ==============================================================
+ *  INTERACTIVE FINE DINING MENU
+ *  Tabbed categories with liquid morphing indicator,
+ *  3D hover dish cards, smooth panel switching.
+ * ==============================================================
+ */
+
+const categories = [
+  {
+    id: 'mezedes',
+    label: 'Mezedes',
+    note: 'Small plates to share',
+    items: [
+      {
+        name: 'Tzatziki Santorini',
+        desc: 'Strained Greek yogurt, cucumber, garlic, dill and cold-pressed olive oil.',
+        price: '7,000',
+        tag: 'Classic',
+        img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/830669234_17995980168038232_88497562846727078_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Lbhv8DS5F7oQ7kNvwHDE4gX&_nc_oc=AdrQgI2KTdoKoVR3tGOZjZQhYWI34wWeeNftDje_5b6TCEMpDjK93Ltea1UJQVs5VF8&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=1-1Jub8tkfzv3u7ThzQ6Dw&_nc_ss=7ca8c&oh=00_AQMbVecZ-iA6CiZJmleyyRitP6NK1qacGur8AQLAIv_oVA&oe=6ACB539B',
+      },
+      {
+        name: 'Fried Feta with Honey',
+        desc: 'Crisp golden feta, thyme honey, sesame and fresh oregano.',
+        price: '9,500',
+        tag: 'Guest favourite',
+        img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/839225653_17996450787038232_1727740202090556684_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Vn8tVgu-3OkQ7kNvwG2uJj9&_nc_oc=AdraF6oixeIuae5NZEhvmVxPrKAabKt1dGaA1Wt1Emg-jeM-I92ZX_u_Thz2vhInu8g&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=4Wop-Y-asHKRlPF8oPuRpQ&_nc_ss=7ca8c&oh=00_AQNPyydHsG9AjBBnqZjdLqgcSTuZIvwdMnZmKxxs_2V16A&oe=6ACB33D3',
+      },
+      {
+        name: 'Grilled Octopus',
+        desc: 'Charred Aegean octopus, fava purée, capers and lemon oil.',
+        price: '18,000',
+        tag: 'Signature',
+      },
+      {
+        name: 'Spanakopita',
+        desc: 'Flaky phyllo pastry filled with spinach, feta and fresh herbs.',
+        price: '8,500',
+        tag: 'Vegetarian',
+      },
+      {
+        name: 'Melitzanosalata',
+        desc: 'Smoked aubergine, garlic, lemon and extra virgin olive oil.',
+        price: '7,500',
+        tag: 'Vegetarian',
+      },
+      {
+        name: 'Loukaniko Sausage',
+        desc: 'Greek pork & leek sausage, orange zest, mustard seed relish.',
+        price: '12,000',
+        tag: 'From the grill',
+      },
+    ],
+  },
+  {
+    id: 'seafood',
+    label: 'Fresh Seafood',
+    note: 'Delivered daily from the Gulf',
+    items: [
+      {
+        name: 'Salmon Fillet',
+        desc: 'Seared salmon, lemon-butter sauce, wilted greens and capers.',
+        price: '28,000',
+        tag: 'Most loved',
+        img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/752924030_17939067183269433_198776336270128348_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=SgsVEYBFdpsQ7kNvwHLN2KE&_nc_oc=AdqUWInrtp1miXj-_zhUR0eqmhn5XAm_4nMWi_kG1BXE_Hgor0Tg5B4dQSsKFR9kQdE&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=6BdsWMTqUtWaH_sIQ_yZpA&_nc_ss=7ca8c&oh=00_AQMDI83iPmL17PrNznz_oZPottIV3zNR9cvAA9JUfPxbKg&oe=6ACB4B00',
+      },
+      {
+        name: 'Aegean Sea Bass',
+        desc: 'Whole grilled sea bass, ladolemono, wild oregano and roasted lemon.',
+        price: '32,000',
+        tag: 'Whole fish',
+      },
+      {
+        name: 'Shrimp Saganaki',
+        desc: 'Prawns simmered in tomato, ouzo, feta and fresh parsley.',
+        price: '24,000',
+        tag: 'Chef’s pick',
+      },
+      {
+        name: 'Mussels in White Wine',
+        desc: 'Prince Edward Island mussels, garlic, Assyrtiko wine and herbs.',
+        price: '21,000',
+        tag: 'To share',
+      },
+      {
+        name: 'Calamari Santorini',
+        desc: 'Lightly floured squid, smoked paprika aioli and lemon.',
+        price: '17,500',
+        tag: 'Crisp',
+      },
+      {
+        name: 'Seafood Orzo',
+        desc: 'Kritharaki pasta, prawns, mussels, saffron tomato broth.',
+        price: '26,000',
+        tag: 'Comfort',
+      },
+    ],
+  },
+  {
+    id: 'mains',
+    label: 'Mains',
+    note: 'Slow-cooked & charcoal grilled',
+    items: [
+      {
+        name: 'Lamb Kleftiko',
+        desc: 'Slow-roasted lamb shoulder in parchment, garlic, lemon and thyme.',
+        price: '34,000',
+        tag: 'Signature',
+        img: 'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMa1MT2rU7NJx_LBy9sZkQejMDw1IHvuR7Hy2GpDOoLDw0JF1h6H4ZsDWooERQPHi-esfVgffWbrVuqaT0EJnc-2BDYMhEQt_8v5hCTokuYLmlWCztqp7M9AGkOhNhqC5JXIuS_6XbMoitzhhwiM6FUDmdsfDKlGpVTHoj8maXDP49RmWVcnS6f0zb923qJJ7ZuxlawL1nKCRL9iEqK_vPXc2qV2vlabUJYSbsbMZ830R_Gy2KSufcICVamGuTezgMHGdZsOPrAXE3GJCDms3eIGMwcWwJnduf2ciwiniYjNoDoMWNG_iKvYjE4zJAf652YwZJuFU-o58tRPHJHG25VQORkb_5RLv15rjA-VLXEVTPFWISZFVgGAvo4nuxgqCuJb9apBtM5Y6zgfXRjODcnmtwBaXv2NaK44OqxGyoWRnA',
+      },
+      {
+        name: 'Moussaka',
+        desc: 'Layered aubergine, spiced beef and golden béchamel gratin.',
+        price: '22,000',
+        tag: 'Traditional',
+      },
+      {
+        name: 'Chicken Souvlaki',
+        desc: 'Charcoal skewers, tzatziki, warm pita and village salad.',
+        price: '19,500',
+        tag: 'From the grill',
+      },
+      {
+        name: 'Pastitsio',
+        desc: 'Greek baked pasta, cinnamon-scented beef and creamy béchamel.',
+        price: '21,000',
+        tag: 'Comfort',
+      },
+      {
+        name: 'Gemista',
+        desc: 'Tomatoes and peppers stuffed with herbed rice, pine nuts and feta.',
+        price: '16,500',
+        tag: 'Vegetarian',
+      },
+      {
+        name: 'Grilled Beef Tenderloin',
+        desc: 'Aged tenderloin, skordalia purée, red wine jus and roasted shallot.',
+        price: '39,000',
+        tag: 'Premium',
+      },
+    ],
+  },
+  {
+    id: 'wines',
+    label: 'Greek Wines & Cocktails',
+    note: 'Island vineyards & Aegean aperitifs',
+    items: [
+      {
+        name: 'Assyrtiko · Santorini',
+        desc: 'Mineral, saline white from volcanic island vines.',
+        price: '12,000',
+        tag: 'Glass',
+        img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/830467005_17995844151038232_5215295222105822441_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=102&ig_cache_key=Mzk5NjIxNjQ1MjYyMDQyMzUwMDE3OTk1ODQ0MTQ4MDM4MjMy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjU0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=cuMWeWgjMl0Q7kNvwGLTbel&_nc_oc=AdoaFQO17MOS53fD_tSnNnH0Mig81XZn4GdIJxS81MIW7Zhiexlh9DZ0XTyuOWAV1gA&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=Q6bZiKaUeZ_EnfA9e-XRKQ&_nc_ss=7ca8c&oh=00_AQNdVgQwxhdTzJJjn7OCdpudIVJ934Nybv-WAZmPsnXjHA&oe=6ACB33C6',
+      },
+      {
+        name: 'Moschofilero',
+        desc: 'Aromatic, floral rosé with notes of rose petal and citrus.',
+        price: '11,000',
+        tag: 'Glass',
+      },
+      {
+        name: 'Ouzo Plomari',
+        desc: 'Traditional anise aperitif served ice cold with mezze.',
+        price: '8,000',
+        tag: 'Aperitif',
+      },
+      {
+        name: 'Santorini Sunset',
+        desc: 'Aperol, blood orange, sparkling wine and a sprig of thyme.',
+        price: '13,500',
+        tag: 'Signature cocktail',
+      },
+      {
+        name: 'Greek Mountain Tea',
+        desc: 'Wild sideritis infusion with honey and lemon.',
+        price: '5,500',
+        tag: 'Non-alcoholic',
+      },
+      {
+        name: 'Freddo Cappuccino',
+        desc: 'Chilled double espresso, frothed milk and cinnamon.',
+        price: '6,500',
+        tag: 'Non-alcoholic',
+      },
+    ],
+  },
+  {
+    id: 'desserts',
+    label: 'Artisanal Desserts',
+    note: 'Hand-made daily in our pastry kitchen',
+    items: [
+      {
+        name: 'Baklava Santorini',
+        desc: 'Layered phyllo, pistachio, walnut and orange-blossom syrup.',
+        price: '9,500',
+        tag: 'House-made',
+        img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/784373865_1064695595917891_8127551106238744098_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk3MDYzMTU3NTIwNzcxNjIxNzE1NDkyNjIzMjk2ODAyODI%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=2mntKquQrg4Q7kNvwEM9vEL&_nc_oc=AdrYTQtyBLF56VPxmurx2f6gDhFiSnodFI1MYpKmxPu6AbMZPNNtucDdiptTHSyWX84&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=P1P-SNYGJ32Nm-qmM09xcg&_nc_ss=7ca8c&oh=00_AQOHXrmo79lWI4NyGXzOQK286C9KKe4WbU1Kqt7R-J8zEg&oe=6ACB3EF7',
+      },
+      {
+        name: 'Galaktoboureko',
+        desc: 'Semolina custard wrapped in crisp phyllo with citrus syrup.',
+        price: '9,000',
+        tag: 'Traditional',
+      },
+      {
+        name: 'Greek Yogurt & Honey',
+        desc: 'Thick strained yogurt, Attiki honey, walnuts and sour cherry.',
+        price: '8,000',
+        tag: 'Light',
+      },
+      {
+        name: 'Loukoumades',
+        desc: 'Warm honey puffs, cinnamon, toasted sesame and vanilla ice cream.',
+        price: '8,500',
+        tag: 'To share',
+      },
+      {
+        name: 'Chocolate Lava',
+        desc: 'Dark chocolate fondant with salted caramel and pistachio.',
+        price: '10,500',
+        tag: 'Indulgent',
+      },
+      {
+        name: 'Portokalopita',
+        desc: 'Orange phyllo cake with syrup and mastika cream.',
+        price: '9,500',
+        tag: 'Seasonal',
+      },
+    ],
+  },
+];
+---
+
+<section id="menu" class="relative overflow-hidden bg-deepsea py-24 text-cream sm:py-28 lg:py-36">
+  <!-- Sculptural background layers -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -left-40 top-10 h-[30rem] w-[30rem] rounded-full border border-white/8"></div>
+    <div class="absolute -right-24 bottom-0 h-[26rem] w-[26rem] rounded-t-full border border-gold/12"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(217,164,65,0.18),transparent_55%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_88%_82%,rgba(46,134,171,0.22),transparent_58%)]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8">
+    <!-- ============ HEADER ============ -->
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <p class="flex items-center gap-3 text-[0.66rem] uppercase tracking-luxe text-gold" data-reveal>
+          <span class="h-px w-12 bg-gold" aria-hidden="true"></span>
+          The Menu
+        </p>
+        <h2 class="mt-7 max-w-3xl font-display text-[clamp(2.5rem,6.2vw,5.15rem)] leading-[0.95]" data-reveal="left">
+          Greek plates,
+          <span class="block italic text-gold">crafted with restraint.</span>
+        </h2>
+      </div>
+      <p class="max-w-md text-cream/72 leading-relaxed" data-reveal="right">
+        From the charcoal grill to the pastry kitchen — every dish is composed around Mediterranean produce, Aegean
+        herbs and the slow rhythm of island dining.
+        <span class="mt-4 block font-arabic text-cream/62" dir="rtl" lang="ar">
+          نكهات يونانية أصيلة تُقدَّم بذوق يليق بتجربة استثنائية.
+        </span>
+      </p>
+    </div>
+
+    <!-- ============ TABS (liquid morphing indicator) ============ -->
+    <div class="mt-12 overflow-x-auto pb-2" data-reveal>
+      <div
+        class="relative inline-flex min-w-max items-center gap-1.5 rounded-full border border-white/12 bg-white/[0.06] p-1.5"
+        role="tablist"
+        aria-label="Menu categories"
+        id="menuTabs"
+      >
+        <span class="tab-indicator" id="tabIndicator" aria-hidden="true"></span>
+        {
+          categories.map((cat, i) => (
+            <button
+              type="button"
+              class="tab-btn rounded-full px-6 text-[0.72rem] font-semibold uppercase tracking-wide2 text-cream/72 sm:px-7"
+              role="tab"
+              id={`tab-${cat.id}`}
+              aria-controls={`panel-${cat.id}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              data-tab={cat.id}
+            >
+              {cat.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- ============ PANELS ============ -->
+    {
+      categories.map((cat, i) => (
+        <div
+          class:list={['menu-panel mt-12 gap-7 sm:grid-cols-2 lg:grid-cols-3', i === 0 && 'is-active']}
+          id={`panel-${cat.id}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${cat.id}`}
+          data-panel={cat.id}
+          tabindex="0"
+        >
+          {cat.items.map((item, idx) => (
+            <article
+              class="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.055] p-7 backdrop-blur-md transition-all duration-700 hover:-translate-y-2 hover:border-gold/45 hover:bg-white/[0.1]"
+              data-tilt="7"
+              data-reveal="flip"
+              style={`transition-delay:${idx * 90}ms`}
+            >
+              <div class="flex items-start justify-between gap-5">
+                <div>
+                  {item.tag && (
+                    <span class="inline-flex items-center rounded-full bg-gold/18 px-3.5 py-1.5 text-[0.58rem] font-semibold uppercase tracking-wide2 text-gold">
+                      {item.tag}
+                    </span>
+                  )}
+                  <h3 class="mt-4 font-display text-[1.55rem] leading-tight text-cream">{item.name}</h3>
+                </div>
+                <p class="shrink-0 font-display text-[1.45rem] text-gold">{item.price}</p>
+              </div>
+              <p class="mt-3.5 text-sm leading-relaxed text-cream/68">{item.desc}</p>
+              <div class="mt-6 h-px w-full bg-white/10" />
+              <div class="mt-5 flex items-center justify-between">
+                <span class="text-[0.62rem] uppercase tracking-wide2 text-cream/45">IQD</span>
+                <span class="inline-flex items-center gap-2 text-[0.66rem] uppercase tracking-wide2 text-sea transition-transform duration-500 group-hover:translate-x-1.5">
+                  Order
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+
+              {item.img && (
+                <div class="img-frame pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-25 transition-all duration-700 group-hover:opacity-60 group-hover:-right-10 group-hover:-top-10">
+                  <img src={item.img} alt="" width="320" height="320" loading="lazy" decoding="async" class="h-full w-full object-cover" />
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      ))
+    }
+
+    <!-- ============ CTA STRIP ============ -->
+    <div
+      class="mt-16 flex flex-col items-start justify-between gap-8 rounded-[2rem] border border-white/12 bg-white/[0.06] p-9 backdrop-blur-md sm:flex-row sm:items-center sm:p-11"
+      data-reveal="zoom"
+    >
+      <div>
+        <h3 class="font-display text-[clamp(1.85rem,3.2vw,2.65rem)] leading-tight">
+          Tasting menus & private rooftop evenings
+        </h3>
+        <p class="mt-3 max-w-xl text-cream/70">
+          Let our chef compose a five-course Aegean journey for your table — available for groups of 6 or more.
+        </p>
+      </div>
+      <a
+        href="#reserve"
+        class="btn btn-gold shrink-0 rounded-full px-9 text-[0.76rem] font-semibold uppercase tracking-wide2"
+        data-magnetic
+      >
+        <span>Reserve a Table</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  /* =========================================================
+     MENU TABS — liquid indicator morph + panel transitions
+     ========================================================= */
+  const tablist = document.getElementById('menuTabs');
+  const indicator = document.getElementById('tabIndicator');
+  const buttons = Array.from(document.querySelectorAll('[data-tab]'));
+  const panels = Array.from(document.querySelectorAll('[data-panel]'));
+
+  function moveIndicator(button) {
+    if (!indicator || !tablist) return;
+    const listRect = tablist.getBoundingClientRect();
+    const btnRect = button.getBoundingClientRect();
+    const x = btnRect.left - listRect.left + tablist.scrollLeft;
+    indicator.style.width = `${btnRect.width}px`;
+    indicator.style.transform = `translate3d(${x}px, 0, 0)`;
+  }
+
+  function activate(id, focus = false) {
+    buttons.forEach((btn) => {
+      const selected = btn.getAttribute('data-tab') === id;
+      btn.setAttribute('aria-selected', String(selected));
+      if (selected) {
+        moveIndicator(btn);
+        if (focus) btn.focus();
+      }
+    });
+    panels.forEach((panel) => {
+      panel.classList.toggle('is-active', panel.getAttribute('data-panel') === id);
+    });
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => activate(btn.getAttribute('data-tab')));
+    btn.addEventListener('keydown', (e) => {
+      const idx = buttons.indexOf(btn);
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        activate(buttons[(idx + 1) % buttons.length].getAttribute('data-tab'), true);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        activate(buttons[(idx - 1 + buttons.length) % buttons.length].getAttribute('data-tab'), true);
+      }
+    });
+  });
+
+  // Initialise indicator position (after fonts/layout settle)
+  const first = buttons[0];
+  if (first) {
+    requestAnimationFrame(() => moveIndicator(first));
+    window.addEventListener('load', () => moveIndicator(first));
+    window.addEventListener('resize', () => {
+      const active = buttons.find((b) => b.getAttribute('aria-selected') === 'true') || first;
+      moveIndicator(active);
+    });
+  }
+</script>

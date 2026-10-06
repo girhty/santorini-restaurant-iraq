@@ -1,0 +1,215 @@
+---
+/**
+ * ==============================================================
+ *  THE SANTORINI EXPERIENCE — editorial story + scroll-linked
+ *  3D unfold cards + sticky pin block.
+ * ==============================================================
+ */
+import Card from './Card.astro';
+
+const storyImages = {
+  arch:
+    'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMbMgNt2v5N9DQIGyhAvwDnphGefYXdZkRLN0gxAchsr-zS0Gi1ByjMb66xGgAehwhVmCCxQIjS-tyoGkdIaxs669oDtZoSzahWd5eSmT6zJqM8rW0iDSgr21_vZUDj-L5i5Em4GnqRhzsKVhP_tvadsniY0IciPxGiSRuHsR5AEt1HaAOv9kwkZHNGG0sErdYs9tB_StRlMNrK_GkmiX_qZ8bS5QUB36s60o7t5y_sEfa8xM8Qqyq_SEXZqwJalhD9MrH0EMwA7sErWRr9PQASx04cTb3N7RDCN5bO22TD2wGp-UJuBAN0Ow83M3Tl8BEYaKX3Ls8yiD3Ki6ZuGoq97gaXVQBcw5v99PFMz6TSa1fNAbKBRXs1K9fZf3ceVgTJ1qHxCHO4fFvCxqCCO_IjMCGs',
+  roof:
+    'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMYvwAsDrzBeic-JBLsd5Am7Cjeh8Altxg3395CxrTayzQYnM15jXGlGNr2TYtTNb06p6oHTOamzkXHolfcsuBJIH6B0cyvVU0CoLqJ4tYOCZmprPoTaj1ECnt8TFKXZMrHpbTlT0OgavdPkLIpqQ3Rd58yYH_CCXMcsHvdKu-EmRMwjRKG8wUWqxBBe0yZPNu1XFnzeJQvMBQ3urgBA6cXxYLA0jp5WWnchvLZkDW-O0884ZQQ_ghLPKImBpgFccxFMuPsyESWNOClA79fBmxJOmYwbBqNIT3Wanf7QOju8tQBqIh5SBCiO3r1VBnjNZOVINgUxmgCw41gbwflMHhCPe2tCUm1Otwe9MI6vM82MqiIprdr5sROxkdLPTEoMHbpMM-n2WL9CV6eqw3-mb1ZKYgM',
+  table:
+    'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMa1MT2rU7NJx_LBy9sZkQejMDw1IHvuR7Hy2GpDOoLDw0JF1h6H4ZsDWooERQPHi-esfVgffWbrVuqaT0EJnc-2BDYMhEQt_8v5hCTokuYLmlWCztqp7M9AGkOhNhqC5JXIuS_6XbMoitzhhwiM6FUDmdsfDKlGpVTHoj8maXDP49RmWVcnS6f0zb923qJJ7ZuxlawL1nKCRL9iEqK_vPXc2qV2vlabUJYSbsbMZ830R_Gy2KSufcICVamGuTezgMHGdZsOPrAXE3GJCDms3eIGMwcWwJnduf2ciwiniYjNoDoMWNG_iKvYjE4zJAf652YwZJuFU-o58tRPHJHG25VQORkb_5RLv15rjA-VLXEVTPFWISZFVgGAvo4nuxgqCuJb9apBtM5Y6zgfXRjODcnmtwBaXv2NaK44OqxGyoWRnA',
+  dishes:
+    'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/752924030_17939067183269433_198776336270128348_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=SgsVEYBFdpsQ7kNvwHLN2KE&_nc_oc=AdqUWInrtp1miXj-_zhUR0eqmhn5XAm_4nMWi_kG1BXE_Hgor0Tg5B4dQSsKFR9kQdE&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=6BdsWMTqUtWaH_sIQ_yZpA&_nc_ss=7ca8c&oh=00_AQMDI83iPmL17PrNznz_oZPottIV3zNR9cvAA9JUfPxbKg&oe=6ACB4B00',
+};
+
+const pillars = [
+  {
+    title: 'Cycladic Architecture',
+    text: 'Hand-laid stone, whitewashed arches and deep Aegean blue — a sculpted rooftop built for golden hour.',
+  },
+  {
+    title: 'Aegean Kitchen',
+    text: 'Charcoal-grilled seafood, olive oil from the Mediterranean and recipes passed between island kitchens.',
+  },
+  {
+    title: 'Baghdad Skyline',
+    text: 'A rooftop that opens over the capital — the most spectacular view in Al-Harithiya at dusk.',
+  },
+];
+---
+
+<section id="experience" class="texture-linen relative overflow-hidden bg-sand py-24 sm:py-28 lg:py-36">
+  <!-- Decorative offset blocks -->
+  <div class="pointer-events-none absolute left-0 top-24 h-72 w-72 rounded-full bg-sea/10 blur-3xl" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute right-0 bottom-24 h-80 w-80 rounded-full bg-gold/12 blur-3xl" aria-hidden="true"></div>
+
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <!-- ================= SECTION HEADER ================= -->
+    <div class="grid items-end gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <p class="flex items-center gap-3 text-[0.66rem] uppercase tracking-luxe text-terra" data-reveal>
+          <span class="h-px w-12 bg-terra" aria-hidden="true"></span>
+          The Santorini Experience
+        </p>
+        <h2 class="mt-7 font-display text-[clamp(2.5rem,6.4vw,5.25rem)] leading-[0.94] text-ink" data-reveal="left">
+          Where the Aegean
+          <span class="block italic text-aegean">meets Baghdad.</span>
+        </h2>
+      </div>
+      <div data-reveal="right">
+        <p class="text-lg leading-relaxed text-ink/78">
+          Santorini is not simply a restaurant — it is a passage. Step off Zeitoun Street, climb the whitewashed stairs
+          and the city falls away beneath a ceiling of lantern light and Cycladic arches.
+        </p>
+        <p class="mt-5 font-arabic text-[0.98rem] leading-loose text-ink/70" dir="rtl" lang="ar">
+          بين ألوان اليونان، نسمات البحر، ونكهة الأطباق الأصيلة — عيشوا تفاصيل سانتوريني بكل أناقتها.
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= EDITORIAL SPLIT + PINNED VISUALS ================= -->
+    <div class="mt-20 grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+      <!-- Sticky narrative column -->
+      <div class="pin-block">
+        <div class="rounded-[2rem] border border-ink/8 bg-cream/85 p-8 shadow-soft sm:p-10" data-reveal="flip">
+          <p class="text-[0.62rem] uppercase tracking-luxe text-sea">Our story</p>
+          <h3 class="mt-5 font-display text-[2.15rem] leading-tight text-ink">
+            A love letter to the Greek islands, written in Baghdad.
+          </h3>
+          <p class="mt-6 leading-relaxed text-ink/75">
+            Every detail at Santorini is composed like a Cycladic courtyard: the linen-draped tables, the terracotta
+            tones of sunset, the cool stone underfoot and the scent of oregano drifting from the charcoal grill.
+          </p>
+
+          <ul class="mt-9 space-y-6">
+            {
+              pillars.map((pillar, i) => (
+                <li class="flex gap-5" data-reveal style={`transition-delay:${i * 120}ms`}>
+                  <span class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-aegean/10 font-display text-lg text-aegean">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h4 class="font-display text-xl text-ink">{pillar.title}</h4>
+                    <p class="mt-2 text-sm leading-relaxed text-ink/70">{pillar.text}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            href="#menu"
+            class="btn btn-primary mt-10 rounded-full px-8 text-[0.75rem] font-semibold uppercase tracking-wide2"
+            data-magnetic
+          >
+            <span>Discover the Menu</span>
+          </a>
+        </div>
+
+        <!-- Rating strip -->
+        <div class="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl bg-aegean px-8 py-6 text-cream shadow-soft" data-reveal>
+          <div>
+            <p class="font-display text-3xl leading-none">
+              <span data-count="4.5">4.5</span><span class="text-gold">/5</span>
+            </p>
+            <p class="mt-1.5 text-[0.62rem] uppercase tracking-wide2 text-cream/70">Google rating</p>
+          </div>
+          <div class="h-10 w-px bg-white/20" aria-hidden="true"></div>
+          <div>
+            <p class="font-display text-3xl leading-none">
+              <span data-count="188">188</span>
+            </p>
+            <p class="mt-1.5 text-[0.62rem] uppercase tracking-wide2 text-cream/70">Verified reviews</p>
+          </div>
+          <div class="h-10 w-px bg-white/20" aria-hidden="true"></div>
+          <div>
+            <p class="font-display text-3xl leading-none">
+              <span data-count="41656">41,656</span>
+            </p>
+            <p class="mt-1.5 text-[0.62rem] uppercase tracking-wide2 text-cream/70">Instagram family</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling 3D card column -->
+      <div class="grid gap-8 sm:grid-cols-2">
+        <Card
+          image={storyImages.arch}
+          alt="Santorini rooftop architecture with whitewashed arches"
+          eyebrow="Architecture"
+          title="Whitewashed Arches"
+          text="Cycladic geometry, sculpted arches and deep Aegean blue detailing."
+          meta="The Rooftop"
+          ratio="aspect-[3/4]"
+          reveal="flip"
+          tilt="10"
+        />
+        <Card
+          image={storyImages.dishes}
+          alt="Grilled salmon fillet plated at Santorini Restaurant"
+          eyebrow="The Kitchen"
+          title="From the Charcoal"
+          text="Salmon fillet, sea bass and octopus finished with lemon, olive oil and herbs."
+          meta="Signature"
+          ratio="aspect-[3/4]"
+          reveal="flip"
+          delay="140ms"
+          tilt="10"
+        />
+        <Card
+          image={storyImages.table}
+          alt="Table setting at Santorini Restaurant Baghdad"
+          eyebrow="The Table"
+          title="Linen & Lantern Light"
+          text="Long Mediterranean dinners designed to unfold slowly, course by course."
+          meta="Ambience"
+          ratio="aspect-[3/4]"
+          reveal="flip"
+          delay="220ms"
+          tilt="10"
+        />
+        <Card
+          image={storyImages.roof}
+          alt="Rooftop terrace overlooking Baghdad skyline"
+          eyebrow="The View"
+          title="Above the Capital"
+          text="A terrace that overlooks Baghdad's most spectacular landmarks at dusk."
+          meta="Skyline"
+          ratio="aspect-[3/4]"
+          reveal="flip"
+          delay="300ms"
+          tilt="10"
+        />
+      </div>
+    </div>
+
+    <!-- ============ FULL-BLEED PARALLAX BANNER ============ -->
+    <div class="relative mt-24 overflow-hidden rounded-[2.25rem] shadow-lift" data-reveal="zoom">
+      <div class="absolute inset-0" data-parallax data-speed="0.16">
+        <img
+          src={storyImages.roof}
+          alt="Panoramic rooftop view over Baghdad at golden hour"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+          class="h-[125%] w-full object-cover"
+        />
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-deepsea/92 via-deepsea/55 to-transparent"></div>
+      <div class="relative flex min-h-[22rem] flex-col justify-center gap-6 p-9 sm:p-14 lg:min-h-[28rem] lg:max-w-[62%]">
+        <p class="text-[0.62rem] uppercase tracking-luxe text-gold">Golden hour on the roof</p>
+        <h3 class="font-display text-[clamp(2.1rem,4.6vw,3.65rem)] leading-[1.02] text-cream">
+          “The atmosphere on the roof is <span class="italic text-gold">amazing</span> — the place overlooks some of
+          Baghdad's most beautiful landmarks.”
+        </h3>
+        <p class="text-sm uppercase tracking-wide2 text-cream/70">Abdullah Furat · Google review</p>
+        <div>
+          <a
+            href="#reserve"
+            class="btn btn-gold rounded-full px-8 text-[0.75rem] font-semibold uppercase tracking-wide2"
+            data-magnetic
+          >
+            <span>Book your rooftop table</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+{
+  "name": "santorini-restaurant-iraq",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Santorini Restaurant — a luxury Greek-Mediterranean rooftop dining experience in Baghdad, Iraq.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.16.0",
+    "tailwindcss": "^3.4.13"
+  }
+}

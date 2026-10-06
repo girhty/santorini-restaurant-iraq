@@ -1,0 +1,195 @@
+---
+/**
+ * ==============================================================
+ *  CURATED VISUAL GALLERY / INSTAGRAM FEED
+ *  Asymmetric grid, 3D hover tiles, parallax offsets,
+ *  like counters and @santoriniiq social proof.
+ * ==============================================================
+ */
+
+const posts = [
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/839225653_17996450787038232_1727740202090556684_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Vn8tVgu-3OkQ7kNvwG2uJj9&_nc_oc=AdraF6oixeIuae5NZEhvmVxPrKAabKt1dGaA1Wt1Emg-jeM-I92ZX_u_Thz2vhInu8g&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=4Wop-Y-asHKRlPF8oPuRpQ&_nc_ss=7ca8c&oh=00_AQNPyydHsG9AjBBnqZjdLqgcSTuZIvwdMnZmKxxs_2V16A&oe=6ACB33D3',
+    caption: 'Crispy fried Greek feta with thyme honey — a Santorini signature.',
+    likes: 7,
+    span: 'sm:col-span-2 lg:col-span-2 lg:row-span-2',
+    ratio: 'aspect-[4/3] lg:aspect-[4/5]',
+  },
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/830669234_17995980168038232_88497562846727078_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Lbhv8DS5F7oQ7kNvwHDE4gX&_nc_oc=AdrQgI2KTdoKoVR3tGOZjZQhYWI34wWeeNftDje_5b6TCEMpDjK93Ltea1UJQVs5VF8&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=1-1Jub8tkfzv3u7ThzQ6Dw&_nc_ss=7ca8c&oh=00_AQMbVecZ-iA6CiZJmleyyRitP6NK1qacGur8AQLAIv_oVA&oe=6ACB539B',
+    caption: 'Authentic Greek village salad with barrel-aged feta.',
+    likes: 18,
+    span: '',
+    ratio: 'aspect-[4/5]',
+  },
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/830467005_17995844151038232_5215295222105822441_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=102&ig_cache_key=Mzk5NjIxNjQ1MjYyMDQyMzUwMDE3OTk1ODQ0MTQ4MDM4MjMy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjU0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=cuMWeWgjMl0Q7kNvwGLTbel&_nc_oc=AdoaFQO17MOS53fD_tSnNnH0Mig81XZn4GdIJxS81MIW7Zhiexlh9DZ0XTyuOWAV1gA&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=Q6bZiKaUeZ_EnfA9e-XRKQ&_nc_ss=7ca8c&oh=00_AQNdVgQwxhdTzJJjn7OCdpudIVJ934Nybv-WAZmPsnXjHA&oe=6ACB33C6',
+    caption: 'Between the colours of Greece, sea breezes and authentic flavours.',
+    likes: 18,
+    span: '',
+    ratio: 'aspect-[4/5]',
+  },
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/800259126_17994270504038232_945464467684913350_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=gYf7Tpz8u0kQ7kNvwFuRVUo&_nc_oc=AdqSn9CISjESopPrB3wHBxxTOOx8VV8GdZeQdq3dVMW8G21fHL2pMkW6_VO1q-rWg_g&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=vadm4Qik_TAKl1WqeUkXNg&_nc_ss=7ca8c&oh=00_AQPABH7dC0gQ2NOld5weiCoG51JERaeLxfvz1uj1-aTiCg&oe=6ACB372B',
+    caption: 'When Greek ambience meets Baghdadi elegance — a different story begins.',
+    likes: 87,
+    span: 'sm:col-span-2',
+    ratio: 'aspect-[16/10]',
+  },
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.71878-15/797150044_2858508911197453_779178276013523111_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3OTQ0Mjg2MzAxODk2MTU2NjkwODk1MDAyMTkzNDAyMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=WMmTz0hrNgcQ7kNvwEpBXJC&_nc_oc=Adp7sKrgWoibeJtCDr7u418wDR0mfNrmOPZQ27r4P0i-aZ1nv6d8gnzOOEmQronSa0g&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=SrERKY4Ek-uZbz7LWZcLnA&_nc_ss=7ca8c&oh=00_AQM8DgV2cyyKcRmIn7LSmaMSEdY5ay2JRu4fMMxftX-DIw&oe=6ACB2842',
+    caption: 'A small journey to Greece — this time from Baghdad.',
+    likes: 299,
+    span: '',
+    ratio: 'aspect-[4/5]',
+  },
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.71878-15/782413355_1570894637829096_2348393822784199739_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=Mzk3MzE3MDI0OTU2MTY0MDQyMzQ1NDE0MDk3Mzk0NzY3MDE%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=-sb3CqBUV-YQ7kNvwELaId4&_nc_oc=Ado7hd576LdGEPcOLCuSJ6GS3NYRYapDitM4v0Phid6fFJ27F3dLu7__w3yJSSolr2w&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=I7LGUyxFrTe8MfwUgK7vjA&_nc_ss=7ca8c&oh=00_AQM7AG2laNfaNAT1QE2-R_bJn6CrrdYxx-ciuTHvqTgabA&oe=6ACB44ED',
+    caption: 'Have you experienced the Santorini summer yet?',
+    likes: 47,
+    span: '',
+    ratio: 'aspect-[4/5]',
+  },
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/782191806_17944083036269433_2927802145553755178_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=Mzk2ODUzNDcwNjg5Mzc3NDUyNDE3OTQ0MDgzMDMzMjY5NDMz.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY3OC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=37XCphHxauAQ7kNvwFal1Q-&_nc_oc=Ado7T9RoFCUDvDXC_YnV3DWtia82FynlG9Njzrz2n9CKhAycSadwfAFKjDc3Vq5qckI&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=2zCKhuRzk5Gc7y_bMqHLEw&_nc_ss=7ca8c&oh=00_AQP_tSt3tcSvqdtS_41qAng8vw39PZ-ybsZnfpZK9KJonQ&oe=6ACB443E',
+    caption: 'Santorini vibes — the evil-eye blue of the Aegean.',
+    likes: 23,
+    span: '',
+    ratio: 'aspect-[4/5]',
+  },
+  {
+    img: 'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/752924030_17939067183269433_198776336270128348_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=SgsVEYBFdpsQ7kNvwHLN2KE&_nc_oc=AdqUWInrtp1miXj-_zhUR0eqmhn5XAm_4nMWi_kG1BXE_Hgor0Tg5B4dQSsKFR9kQdE&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=6BdsWMTqUtWaH_sIQ_yZpA&_nc_ss=7ca8c&oh=00_AQMDI83iPmL17PrNznz_oZPottIV3zNR9cvAA9JUfPxbKg&oe=6ACB4B00',
+    caption: 'Salmon fillet — a seafood flavour served with mastery.',
+    likes: 44,
+    span: '',
+    ratio: 'aspect-[4/5]',
+  },
+  {
+    img: 'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJH4DmFAB_VxUR0ZQVmD-Yk5c%2Fphotos%2FAa-ngMYvwAsDrzBeic-JBLsd5Am7Cjeh8Altxg3395CxrTayzQYnM15jXGlGNr2TYtTNb06p6oHTOamzkXHolfcsuBJIH6B0cyvVU0CoLqJ4tYOCZmprPoTaj1ECnt8TFKXZMrHpbTlT0OgavdPkLIpqQ3Rd58yYH_CCXMcsHvdKu-EmRMwjRKG8wUWqxBBe0yZPNu1XFnzeJQvMBQ3urgBA6cXxYLA0jp5WWnchvLZkDW-O0884ZQQ_ghLPKImBpgFccxFMuPsyESWNOClA79fBmxJOmYwbBqNIT3Wanf7QOju8tQBqIh5SBCiO3r1VBnjNZOVINgUxmgCw41gbwflMHhCPe2tCUm1Otwe9MI6vM82MqiIprdr5sROxkdLPTEoMHbpMM-n2WL9CV6eqw3-mb1ZKYgM',
+    caption: 'Rooftop terrace, lantern light and the Baghdad skyline.',
+    likes: 31,
+    span: 'sm:col-span-2',
+    ratio: 'aspect-[16/10]',
+  },
+];
+---
+
+<section id="gallery" class="texture-linen relative overflow-hidden bg-sand py-24 sm:py-28 lg:py-32">
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <!-- ============ HEADER ============ -->
+    <div class="flex flex-col gap-9 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <p class="flex items-center gap-3 text-[0.66rem] uppercase tracking-luxe text-terra" data-reveal>
+          <span class="h-px w-12 bg-terra" aria-hidden="true"></span>
+          Visual Journal
+        </p>
+        <h2 class="mt-7 max-w-2xl font-display text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] text-ink" data-reveal="left">
+          Moments from
+          <span class="block italic text-aegean">our Aegean world.</span>
+        </h2>
+      </div>
+
+      <!-- Instagram profile badge -->
+      <div
+        class="flex items-center gap-5 rounded-[1.5rem] border border-ink/10 bg-cream/85 p-5 shadow-soft"
+        data-reveal="right"
+      >
+        <span class="block h-16 w-16 overflow-hidden rounded-full ring-2 ring-aegean/40">
+          <img
+            src="https://scontent-ams2-1.cdninstagram.com/v/t51.2885-19/454466941_1209286150193886_3565551414674742385_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=106&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=hR7Di7zRRPkQ7kNvwEKtkku&_nc_oc=AdqpYPZMnBt8UjRue5si2WQ4_DDYcrgn9h6WHcEztGgbMIHTy0R0XjGZ1jiNCGx1wdU&_nc_zt=24&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_ss=7ca8c&oh=00_AQM3f8ZkHRZnBhLCNtOC48uXexlqWmWfoR4aZM7mO4eThw&oe=6ACB3BC3"
+            alt="Santorini Restaurant Instagram profile picture"
+            width="128"
+            height="128"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </span>
+        <div>
+          <p class="font-display text-xl text-ink">@santoriniiq</p>
+          <p class="mt-1 text-xs text-ink/62">
+            <strong class="text-aegean" data-count="41656">41,656</strong> followers · Few Steps To Greece
+          </p>
+          <a
+            href="https://www.instagram.com/santoriniiq/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-2.5 inline-flex min-h-[36px] items-center gap-2 rounded-full bg-aegean px-4 text-[0.62rem] font-semibold uppercase tracking-wide2 text-cream transition-colors duration-500 hover:bg-deepsea"
+          >
+            Follow
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ASYMMETRIC 3D GRID ============ -->
+    <div class="mt-14 grid auto-rows-auto grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+      {
+        posts.map((post, i) => (
+          <figure
+            class:list={[
+              'gallery-item group relative overflow-hidden rounded-[1.5rem] shadow-soft transition-shadow duration-700 hover:shadow-lift',
+              post.span,
+            ]}
+            data-tilt="6"
+            data-reveal={i % 3 === 0 ? 'flip' : i % 3 === 1 ? 'zoom' : 'skew'}
+            style={`transition-delay:${(i % 4) * 110}ms`}
+            tabindex="0"
+          >
+            <div class:list={['img-frame w-full', post.ratio]}>
+              <img
+                src={post.img}
+                alt={post.caption}
+                width="800"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-deepsea/88 via-deepsea/10 to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-95" />
+            </div>
+
+            <!-- Hover overlay -->
+            <figcaption class="gallery-overlay absolute inset-x-0 bottom-0 p-6">
+              <p class="font-arabic text-sm leading-relaxed text-cream/95" lang="en">
+                {post.caption}
+              </p>
+              <div class="mt-4 flex items-center gap-5 text-cream/85">
+                <span class="inline-flex items-center gap-2 text-xs">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 21s-7.5-4.6-9.3-9A5.2 5.2 0 0 1 12 6.5 5.2 5.2 0 0 1 21.3 12c-1.8 4.4-9.3 9-9.3 9Z" />
+                  </svg>
+                  {post.likes}
+                </span>
+                <span class="inline-flex items-center gap-2 text-xs">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-5 4V5a1 1 0 0 1 1-1Z" />
+                  </svg>
+                  {Math.max(1, Math.round(post.likes / 7))}
+                </span>
+                <span class="text-[0.62rem] uppercase tracking-wide2 text-gold">@santoriniiq</span>
+              </div>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <!-- ============ FEED CTA ============ -->
+    <div class="mt-14 flex flex-col items-center gap-6 text-center" data-reveal="zoom">
+      <p class="max-w-xl text-ink/70">
+        Follow our daily journey — new dishes, rooftop evenings and golden-hour moments from Al-Harithiya.
+      </p>
+      <a
+        href="https://www.instagram.com/santoriniiq/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary rounded-full px-10 text-[0.76rem] font-semibold uppercase tracking-wide2"
+        data-magnetic
+      >
+        <span>View the Instagram Feed</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
